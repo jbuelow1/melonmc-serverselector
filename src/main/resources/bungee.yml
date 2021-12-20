@@ -1,0 +1,5 @@
+name: MelonMC Server Selector
+author: YammyShep
+version: '${project.version}'
+main: net.melonmc.serverselector.Serverselector
+depends: [Protocolize]
