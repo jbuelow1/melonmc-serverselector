@@ -6,7 +6,7 @@
 
     <groupId>net.melonmc</groupId>
     <artifactId>serverselector</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>MelonMC Server Selector</name>
