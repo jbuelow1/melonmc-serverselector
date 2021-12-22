@@ -21,26 +21,15 @@ public class SelectorUI {
         Inventory inventory = new Inventory(InventoryType.GENERIC_9X1);
         inventory.title("§9MelonMC Server Selector");
 
-
-        inventory.item(0, player.hasPermission("bungeecord.server.hub") ?
-                new ItemStack(ItemType.SPAWNER).displayName("§5Hub") :
-                new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
+        inventory.item(0, new ItemStack(ItemType.SPAWNER).displayName("§5Hub"));
         inventory.item(1, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(2, player.hasPermission("bungeecord.server.survival") ?
-                new ItemStack(ItemType.CRAFTING_TABLE).displayName("§5Survival") :
-                new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
+        inventory.item(2, new ItemStack(ItemType.CRAFTING_TABLE).displayName("§5Survival"));
         inventory.item(3, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(4, player.hasPermission("bungeecord.server.creative") ?
-                new ItemStack(ItemType.STICKY_PISTON).displayName("§5Creative") :
-                new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
+        inventory.item(4, new ItemStack(ItemType.STICKY_PISTON).displayName("§5Creative"));
         inventory.item(5, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(6, player.hasPermission("bungeecord.server.modpack") ?
-                new ItemStack(ItemType.REDSTONE_ORE).displayName("§5Modpack") :
-                new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
+        inventory.item(6, new ItemStack(ItemType.STICKY_PISTON).displayName("§5Modpack"));
         inventory.item(7, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(8, player.hasPermission("bungeecord.server.ftb") ?
-                new ItemStack(ItemType.IRON_ORE).displayName("§5FTB Revelations") :
-                new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
+        inventory.item(8, new ItemStack(ItemType.STICKY_PISTON).displayName("§5FTB Revelations"));
 
         ProtocolizePlayer protoPlayer = Protocolize.playerProvider().player(player.getUniqueId());
 
@@ -48,23 +37,23 @@ public class SelectorUI {
             String server = null;
             switch (click.slot()) {
                 case 0:
-                    server = player.hasPermission("bungeecord.server.hub") ? "Hub" : null;
+                    server = "Hub";
                     break;
 
                 case 2:
-                    server = player.hasPermission("bungeecord.server.survival") ? "Survival" : null;
+                    server = "Survival";
                     break;
 
                 case 4:
-                    server = player.hasPermission("bungeecord.server.creative") ? "Creative" : null;
+                    server = "Creative";
                     break;
 
                 case 6:
-                    server = player.hasPermission("bungeecord.server.modpack") ? "Modpack" : null;
+                    server = "Modpack";
                     break;
 
                 case 8:
-                    server = player.hasPermission("bungeecord.server.ftb") ? "FTB" : null;
+                    server = "FTB";
                     break;
 
                 default:
