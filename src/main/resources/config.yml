@@ -1,0 +1,18 @@
+command: servers
+aliases:
+  - srv
+useBungeePermissions: false
+permission: serverselector.selector
+title: "§9Server Selector"
+servers:
+  hub:
+    slot: 0
+    item: SPAWNER
+    name: "§5Hub"
+  survival:
+    slot: 1
+    item: CRAFTING_TABLE
+    name: "§5Survival"
+padding:
+  fill: true
+  item: BLACK_STAINED_GLASS_PANE

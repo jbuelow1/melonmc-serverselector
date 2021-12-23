@@ -27,9 +27,9 @@ public class SelectorUI {
         inventory.item(3, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
         inventory.item(4, new ItemStack(ItemType.STICKY_PISTON).displayName("§5Creative"));
         inventory.item(5, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(6, new ItemStack(ItemType.STICKY_PISTON).displayName("§5Modpack"));
+        inventory.item(6, new ItemStack(ItemType.REDSTONE_ORE).displayName("§5Modpack"));
         inventory.item(7, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(8, new ItemStack(ItemType.STICKY_PISTON).displayName("§5FTB Revelations"));
+        inventory.item(8, new ItemStack(ItemType.IRON_ORE).displayName("§5FTB Revelations"));
 
         ProtocolizePlayer protoPlayer = Protocolize.playerProvider().player(player.getUniqueId());
 

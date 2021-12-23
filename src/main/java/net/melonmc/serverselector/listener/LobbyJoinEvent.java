@@ -6,11 +6,11 @@ import dev.simplix.protocolize.api.listener.AbstractPacketListener;
 import dev.simplix.protocolize.api.listener.PacketReceiveEvent;
 import dev.simplix.protocolize.api.listener.PacketSendEvent;
 import net.md_5.bungee.protocol.packet.LoginSuccess;
-import net.melonmc.serverselector.Serverselector;
+import net.melonmc.serverselector.ServerSelector;
 
 public class LobbyJoinEvent extends AbstractPacketListener<LoginSuccess> {
 
-    public LobbyJoinEvent(Serverselector plugin) {
+    public LobbyJoinEvent(ServerSelector plugin) {
         super(LoginSuccess.class, Direction.DOWNSTREAM, 0);
         Protocolize.listenerProvider().registerListener(this);
     }
