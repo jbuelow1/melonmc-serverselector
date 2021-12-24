@@ -22,10 +22,12 @@ public final class ServerSelector extends Plugin {
     @Getter
     private Configuration config;
 
+    @Getter
+    private static ServerSelector plugin;
+
     @Override
     public void onEnable() {
-        // Plugin startup logic
-        serversCommandListener = new ServersCommandListener(this);
+        plugin = this;
 
         // Save default config
         if (!getDataFolder().exists())
@@ -48,6 +50,10 @@ public final class ServerSelector extends Plugin {
         } catch (IOException e) {
             getLogger().log(Level.SEVERE, "Failed to load config file for ServerSelector!", e);
         }
+
+        // Register command listener
+        serversCommandListener = ServersCommandListener.factory(this);
+
 //        lobbyJoinEvent = new LobbyJoinEvent(this); //Not working yet
     }
 

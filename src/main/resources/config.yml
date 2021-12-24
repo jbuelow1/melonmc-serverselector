@@ -1,18 +1,24 @@
-command: servers
-aliases:
+# ServerSelector config file
+command: servers # Name of command, as typed by users
+aliases: # Any aliases for the selector command
   - srv
-useBungeePermissions: false
-permission: serverselector.selector
-title: "§9Server Selector"
+useBungeePermissions: false # if true, bungeecord.command.server and bungeecord.server.x are used instead of perms defined below
+permissionPrefix: serverselector # prefix of all permission nodes used by this plugin
+permission: selector # permission node requred to open selector menu. do not include prefix
+rows: 1 # number of chest rows to show in ui
+title: "§9Server Selector" # title or name of chest ui
 servers:
   hub:
     slot: 0
     item: SPAWNER
     name: "§5Hub"
+    permission: server.hub
   survival:
     slot: 1
     item: CRAFTING_TABLE
     name: "§5Survival"
 padding:
   fill: true
-  item: BLACK_STAINED_GLASS_PANE
+  item: WHITE_STAINED_GLASS_PANE
+messages:
+  connect: Connecting to {SERVERNAME}...

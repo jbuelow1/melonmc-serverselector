@@ -8,28 +8,42 @@ import dev.simplix.protocolize.data.ItemType;
 import dev.simplix.protocolize.data.inventory.InventoryType;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
+import net.md_5.bungee.config.Configuration;
+import net.melonmc.serverselector.ServerSelector;
 
 public class SelectorUI {
 
     private final ProxiedPlayer player;
+    private final Configuration config;
 
     public SelectorUI(ProxiedPlayer proxyplayer) {
         this.player = proxyplayer;
+        this.config = ServerSelector.getPlugin().getConfig();
     }
 
     public void show() {
-        Inventory inventory = new Inventory(InventoryType.GENERIC_9X1);
-        inventory.title("§9MelonMC Server Selector");
+        int rows = config.getInt("rows");
+        String title = config.getString("title");
 
-        inventory.item(0, new ItemStack(ItemType.SPAWNER).displayName("§5Hub"));
-        inventory.item(1, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(2, new ItemStack(ItemType.CRAFTING_TABLE).displayName("§5Survival"));
-        inventory.item(3, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(4, new ItemStack(ItemType.STICKY_PISTON).displayName("§5Creative"));
-        inventory.item(5, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(6, new ItemStack(ItemType.REDSTONE_ORE).displayName("§5Modpack"));
-        inventory.item(7, new ItemStack(ItemType.BLACK_STAINED_GLASS_PANE).displayName(""));
-        inventory.item(8, new ItemStack(ItemType.IRON_ORE).displayName("§5FTB Revelations"));
+        Inventory inventory = new Inventory(InventoryType.chestInventoryWithRows(rows));
+        inventory.title(title);
+
+        // If config requests the blank spaces be filled
+        if (config.getBoolean("padding.fill")) {
+            for (int i = 0; i < rows*9; i++) {
+                inventory.item(i, new ItemStack(ItemType.valueOf(config.getString("padding.item"))).displayName(""));
+            }
+        }
+
+        for (String serverKey : config.getSection("servers").getKeys()) {
+            Configuration serverConfig = config.getSection("servers."+serverKey);
+            int slot = serverConfig.getInt("slot");
+            ItemType item = ItemType.valueOf(serverConfig.getString("item"));
+            String name = serverConfig.getString("name");
+
+            // Put item in inventory
+            inventory.item(slot, new ItemStack(item).displayName(name));
+        }
 
         ProtocolizePlayer protoPlayer = Protocolize.playerProvider().player(player.getUniqueId());
 
