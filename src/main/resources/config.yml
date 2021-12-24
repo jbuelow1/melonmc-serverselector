@@ -22,3 +22,4 @@ padding:
   item: WHITE_STAINED_GLASS_PANE
 messages:
   connect: Connecting to {SERVERNAME}...
+  failure: Could not connect to {SERVERNAME}
