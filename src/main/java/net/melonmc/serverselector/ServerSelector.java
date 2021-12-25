@@ -5,6 +5,7 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
+import net.melonmc.serverselector.listener.GiveCompassItemTestCommand;
 import net.melonmc.serverselector.listener.LobbyJoinEvent;
 import net.melonmc.serverselector.listener.ServersCommandListener;
 
@@ -53,6 +54,8 @@ public final class ServerSelector extends Plugin {
 
         // Register command listener
         serversCommandListener = ServersCommandListener.factory(this);
+
+        new GiveCompassItemTestCommand(this);
 
 //        lobbyJoinEvent = new LobbyJoinEvent(this); //Not working yet
     }
