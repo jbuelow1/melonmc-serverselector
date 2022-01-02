@@ -21,7 +21,7 @@ public class GiveCompassItemTestCommand extends Command {
     @Override
     public void execute(CommandSender sender, String[] args) {
         sender.sendMessage("ok");
-        SelectionItem select = new SelectionItem(plugin, (ProxiedPlayer) sender);
+        SelectionItem select = new SelectionItem(plugin, (ProxiedPlayer) sender, ((ProxiedPlayer) sender).getServer());
         select.give();
     }
 }

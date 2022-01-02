@@ -48,7 +48,7 @@ public class LobbyJoinEvent implements Listener {
         public void run() {
             if (fails > 5) { return; }
             try {
-                SelectionItem select = new SelectionItem(plugin, player);
+                SelectionItem select = new SelectionItem(plugin, player, player.getServer());
                 select.give();
             } catch (Exception ignored) {
                 fails++;
