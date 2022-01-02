@@ -18,7 +18,6 @@ import java.util.logging.Level;
 public final class ServerSelector extends Plugin {
 
     private ServersCommandListener serversCommandListener;
-    private LobbyJoinEvent lobbyJoinEvent;
 
     @Getter
     private Configuration config;
@@ -55,9 +54,9 @@ public final class ServerSelector extends Plugin {
         // Register command listener
         serversCommandListener = ServersCommandListener.factory(this);
 
-        new GiveCompassItemTestCommand(this);
+        //new GiveCompassItemTestCommand(this);
 
-//        lobbyJoinEvent = new LobbyJoinEvent(this); //Not working yet
+        new LobbyJoinEvent(this); //Not working yet
     }
 
     @Override
