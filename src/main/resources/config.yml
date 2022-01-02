@@ -2,6 +2,8 @@
 command: servers # Name of command, as typed by users
 aliases: # Any aliases for the selector command
   - srv
+compassServers:
+  - Hub
 useBungeePermissions: false # if true, bungeecord.command.server and bungeecord.server.x are used instead of perms defined below
 permissionPrefix: serverselector # prefix of all permission nodes used by this plugin
 permission: selector # permission node requred to open selector menu. do not include prefix

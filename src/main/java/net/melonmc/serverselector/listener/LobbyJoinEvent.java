@@ -24,9 +24,11 @@ public class LobbyJoinEvent implements Listener {
 
     @EventHandler
     public void onConnectedEvent(ServerConnectedEvent e) {
-        if (Objects.equals(e.getServer().getInfo().getName(), "Hub")) { //TODO
-            CompassGiverTask task = new CompassGiverTask(e.getPlayer());
-            task.begin();
+        for (String server : plugin.getConfig().getStringList("compassServers")) {
+            if (Objects.equals(e.getServer().getInfo().getName(), server)) {
+                CompassGiverTask task = new CompassGiverTask(e.getPlayer());
+                task.begin();
+            }
         }
     }
 
