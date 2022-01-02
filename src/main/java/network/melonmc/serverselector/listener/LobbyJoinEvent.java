@@ -1,13 +1,12 @@
-package net.melonmc.serverselector.listener;
+package network.melonmc.serverselector.listener;
 
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.event.PluginMessageEvent;
 import net.md_5.bungee.api.event.ServerConnectedEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
-import net.melonmc.serverselector.ServerSelector;
-import net.melonmc.serverselector.select.SelectionItem;
+import network.melonmc.serverselector.ServerSelector;
+import network.melonmc.serverselector.select.SelectionItem;
 
 import java.util.Objects;
 import java.util.Timer;

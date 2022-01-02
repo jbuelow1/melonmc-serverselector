@@ -1,20 +1,12 @@
-package net.melonmc.serverselector.select;
+package network.melonmc.serverselector.select;
 
-import dev.simplix.protocolize.api.Direction;
 import dev.simplix.protocolize.api.Protocolize;
 import dev.simplix.protocolize.api.inventory.PlayerInventory;
 import dev.simplix.protocolize.api.item.ItemStack;
-import dev.simplix.protocolize.api.listener.AbstractPacketListener;
-import dev.simplix.protocolize.api.listener.PacketReceiveEvent;
-import dev.simplix.protocolize.api.listener.PacketSendEvent;
 import dev.simplix.protocolize.api.player.ProtocolizePlayer;
 import dev.simplix.protocolize.data.ItemType;
-import dev.simplix.protocolize.data.listeners.UseItemListener;
-import dev.simplix.protocolize.data.packets.UseItem;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.protocol.packet.Chat;
-import net.melonmc.serverselector.ServerSelector;
-import net.querz.nbt.tag.CompoundTag;
+import network.melonmc.serverselector.ServerSelector;
 
 public class SelectionItem {
 

@@ -1,13 +1,12 @@
-package net.melonmc.serverselector;
+package network.melonmc.serverselector;
 
 import lombok.Getter;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
-import net.melonmc.serverselector.listener.GiveCompassItemTestCommand;
-import net.melonmc.serverselector.listener.LobbyJoinEvent;
-import net.melonmc.serverselector.listener.ServersCommandListener;
+import network.melonmc.serverselector.listener.LobbyJoinEvent;
+import network.melonmc.serverselector.listener.ServersCommandListener;
 
 import java.io.File;
 import java.io.IOException;
