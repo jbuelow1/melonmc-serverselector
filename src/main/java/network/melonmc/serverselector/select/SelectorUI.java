@@ -1,4 +1,4 @@
-package network.melonmc.serverselector.select;
+package net.melonmc.serverselector.select;
 
 import dev.simplix.protocolize.api.Protocolize;
 import dev.simplix.protocolize.api.inventory.Inventory;
@@ -10,7 +10,8 @@ import dev.simplix.protocolize.data.inventory.InventoryType;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.config.Configuration;
-import network.melonmc.serverselector.ServerSelector;
+import net.melonmc.serverselector.ServerConnector;
+import net.melonmc.serverselector.ServerSelector;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,12 +66,7 @@ public class SelectorUI {
         String server = slots.get(click.slot());
         ProtocolizePlayer protoplayer = click.player();
 
-        player.sendMessage("§1Connecting to " + server + "...");
-        try {
-            player.connect(ProxyServer.getInstance().getServerInfo(server));
-        } catch (Exception e) {
-            player.sendMessage("§4Could not connect to "+server);
-        }
+        ServerConnector.connectPlayerTo(player, server);
 
         protoplayer.closeInventory();
     }
