@@ -40,7 +40,7 @@ public final class ServerSelector extends Plugin {
 
         // Create entrypoint for Adventure API
         this.adventure = BungeeAudiences.create(this);
-        this.miniMessage = MiniMessage.markdown();
+        this.miniMessage = MiniMessage.get();
 
         // Save default config
         if (!getDataFolder().exists())
