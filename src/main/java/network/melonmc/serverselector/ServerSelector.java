@@ -1,6 +1,8 @@
 package network.melonmc.serverselector;
 
 import lombok.Getter;
+import net.kyori.adventure.platform.bungeecord.BungeeAudiences;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -23,9 +25,22 @@ public final class ServerSelector extends Plugin {
     @Getter
     private static ServerSelector plugin;
 
+    @Getter
+    private ServerConnector connector;
+
+    @Getter
+    private BungeeAudiences adventure;
+
+    @Getter
+    private MiniMessage miniMessage;
+
     @Override
     public void onEnable() {
         plugin = this;
+
+        // Create entrypoint for Adventure API
+        this.adventure = BungeeAudiences.create(this);
+        this.miniMessage = MiniMessage.markdown();
 
         // Save default config
         if (!getDataFolder().exists())
@@ -48,6 +63,8 @@ public final class ServerSelector extends Plugin {
         } catch (IOException e) {
             getLogger().log(Level.SEVERE, "Failed to load config file for ServerSelector!", e);
         }
+
+        this.connector = new ServerConnector(this);
 
         // Register command listener
         serversCommandListener = ServersCommandListener.factory(this);

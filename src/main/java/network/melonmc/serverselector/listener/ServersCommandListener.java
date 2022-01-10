@@ -11,6 +11,7 @@ import network.melonmc.serverselector.select.SelectorUI;
 
 public class ServersCommandListener extends Command {
 
+    private final ServerConnector connector;
     private final Configuration config;
 
     public static ServersCommandListener factory(ServerSelector plugin) {
@@ -23,7 +24,8 @@ public class ServersCommandListener extends Command {
 
     public ServersCommandListener(ServerSelector plugin, String command, String perm, String[] aliases) {
         super(command, perm, aliases);
-        config = plugin.getConfig();
+        this.config = plugin.getConfig();
+        this.connector = plugin.getConnector();
         ProxyServer.getInstance().getPluginManager().registerCommand(plugin, this);
     }
 
@@ -36,7 +38,7 @@ public class ServersCommandListener extends Command {
                 for (String id : config.getSection("servers").getKeys()) {
                     if (id.equalsIgnoreCase(args[0]) ||
                             args[0].equalsIgnoreCase(config.getString("servers."+id+".alias"))) {
-                        ServerConnector.connectPlayerTo((ProxiedPlayer) sender, id);
+                        connector.connect((ProxiedPlayer) sender, id);
                         return;
                     }
                 }

@@ -9,22 +9,22 @@ useBungeePermissions: false # if true, bungeecord.command.server and bungeecord.
 permissionPrefix: serverselector # prefix of all permission nodes used by this plugin
 permission: selector # permission node requred to open selector menu. do not include prefix
 rows: 1 # number of chest rows to show in ui
-title: "§9Server Selector" # title or name of chest ui
+title: "<color:red>Server Selector" # title or name of chest ui
 servers:
   hub:
     slot: 0
     item: SPAWNER
     alias: h
-    name: "§5Hub"
+    name: "<color:blue>Hub"
     permission: server.hub
   survival:
     slot: 1
     item: CRAFTING_TABLE
     alias: s
-    name: "§5Survival"
+    name: "<color:blue>Survival"
 padding:
   fill: true
   item: WHITE_STAINED_GLASS_PANE
 messages:
-  connect: Connecting to {SERVERNAME}...
-  failure: Could not connect to {SERVERNAME}
+  connect: <color:green>Connecting to <servername>...
+  failure: <color:red>Could not connect to <servername>
