@@ -1,4 +1,4 @@
-package net.melonmc.serverselector.select;
+package network.melonmc.serverselector.select;
 
 import dev.simplix.protocolize.api.Protocolize;
 import dev.simplix.protocolize.api.inventory.Inventory;
@@ -10,8 +10,8 @@ import dev.simplix.protocolize.data.inventory.InventoryType;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.config.Configuration;
-import net.melonmc.serverselector.ServerConnector;
-import net.melonmc.serverselector.ServerSelector;
+import network.melonmc.serverselector.ServerConnector;
+import network.melonmc.serverselector.ServerSelector;
 
 import java.util.HashMap;
 import java.util.Map;

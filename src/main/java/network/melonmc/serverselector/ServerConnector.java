@@ -1,4 +1,4 @@
-package net.melonmc.serverselector;
+package network.melonmc.serverselector;
 
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
