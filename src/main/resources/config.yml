@@ -1,5 +1,6 @@
 # ServerSelector config file
 command: servers # Name of command, as typed by users
+allowSubcommands: true # Allows user to select a server using /servers <serverid>
 aliases: # Any aliases for the selector command
   - srv
 useBungeePermissions: false # if true, bungeecord.command.server and bungeecord.server.x are used instead of perms defined below
@@ -11,11 +12,13 @@ servers:
   hub:
     slot: 0
     item: SPAWNER
+    alias: h
     name: "§5Hub"
     permission: server.hub
   survival:
     slot: 1
     item: CRAFTING_TABLE
+    alias: s
     name: "§5Survival"
 padding:
   fill: true
